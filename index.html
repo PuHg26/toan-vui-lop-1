@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <title>Toán Vui Lớp 1 🍎</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@600;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Màn hình chào -->
+  <div id="screen-welcome" class="screen active">
+    <div class="welcome-bg">
+      <div class="stars"></div>
+      <div class="mascot bounce">🦊</div>
+      <h1 class="title">Toán Vui<br>Lớp 1</h1>
+      <p class="subtitle">Cùng bạn Cáo học toán thật vui nào!</p>
+      <button class="btn-big btn-start" onclick="goTo('menu')">Bắt đầu học thôi! 🚀</button>
+    </div>
+  </div>
+
+  <!-- Menu chính -->
+  <div id="screen-menu" class="screen">
+    <header class="top-bar">
+      <button class="btn-back" onclick="goTo('welcome')">←</button>
+      <h2>Chọn chủ đề</h2>
+      <div class="score-box">⭐ <span id="total-stars">0</span></div>
+    </header>
+
+    <div class="menu-grid">
+      <button class="topic-card topic-so" onclick="goTo('demso')">
+        <span class="topic-icon">🔢</span>
+        <span class="topic-name">Chữ số & Đếm</span>
+        <span class="topic-desc">Đếm quả, so sánh số</span>
+      </button>
+      <button class="topic-card topic-congtru" onclick="goTo('congtru')">
+        <span class="topic-icon">➕</span>
+        <span class="topic-name">Cộng & Trừ</span>
+        <span class="topic-desc">Gộp – tách vui nhộn</span>
+      </button>
+      <button class="topic-card topic-hinh" onclick="goTo('hinhhoc')">
+        <span class="topic-icon">🔺</span>
+        <span class="topic-name">Hình học</span>
+        <span class="topic-desc">Vuông, tròn, tam giác</span>
+      </button>
+      <button class="topic-card topic-dongho" onclick="goTo('dongho')">
+        <span class="topic-icon">🕐</span>
+        <span class="topic-name">Đồng hồ</span>
+        <span class="topic-desc">Xem giờ đúng</span>
+      </button>
+    </div>
+
+    <div class="mascot-corner">🦊</div>
+  </div>
+
+  <!-- Màn hình Đếm số -->
+  <div id="screen-demso" class="screen">
+    <header class="top-bar">
+      <button class="btn-back" onclick="goTo('menu')">←</button>
+      <h2>Đếm số nào!</h2>
+      <div class="score-box">⭐ <span class="stars-here">0</span></div>
+    </header>
+
+    <div class="game-area">
+      <p class="question" id="demso-question">Có bao nhiêu quả táo?</p>
+      <div class="items-row" id="demso-items"></div>
+      <div class="answer-options" id="demso-options"></div>
+      <div class="feedback" id="demso-feedback"></div>
+    </div>
+  </div>
+
+  <!-- Màn hình Cộng Trừ -->
+  <div id="screen-congtru" class="screen">
+    <header class="top-bar">
+      <button class="btn-back" onclick="goTo('menu')">←</button>
+      <h2>Cộng & Trừ</h2>
+      <div class="score-box">⭐ <span class="stars-here">0</span></div>
+    </header>
+
+    <div class="game-area">
+      <p class="question" id="congtru-question">3 + 2 = ?</p>
+      <div class="visual-math" id="congtru-visual"></div>
+      <div class="answer-options" id="congtru-options"></div>
+      <div class="feedback" id="congtru-feedback"></div>
+    </div>
+  </div>
+
+  <!-- Màn hình Hình học -->
+  <div id="screen-hinhhoc" class="screen">
+    <header class="top-bar">
+      <button class="btn-back" onclick="goTo('menu')">←</button>
+      <h2>Hình học vui</h2>
+      <div class="score-box">⭐ <span class="stars-here">0</span></div>
+    </header>
+
+    <div class="game-area">
+      <p class="question" id="hinh-question">Đây là hình gì?</p>
+      <div class="shape-display" id="hinh-display"></div>
+      <div class="answer-options" id="hinh-options"></div>
+      <div class="feedback" id="hinh-feedback"></div>
+    </div>
+  </div>
+
+  <!-- Màn hình Đồng hồ -->
+  <div id="screen-dongho" class="screen">
+    <header class="top-bar">
+      <button class="btn-back" onclick="goTo('menu')">←</button>
+      <h2>Xem đồng hồ</h2>
+      <div class="score-box">⭐ <span class="stars-here">0</span></div>
+    </header>
+
+    <div class="game-area">
+      <p class="question" id="dongho-question">Bây giờ là mấy giờ?</p>
+      <div class="clock-wrap">
+        <canvas id="clock-canvas" width="220" height="220"></canvas>
+      </div>
+      <div class="answer-options" id="dongho-options"></div>
+      <div class="feedback" id="dongho-feedback"></div>
+    </div>
+  </div>
+
+  <!-- Popup khen -->
+  <div id="popup-correct" class="popup">
+    <div class="popup-content">
+      <div class="popup-emoji">🎉</div>
+      <p class="popup-text">Giỏi quá!</p>
+      <p class="popup-stars">+1 ⭐</p>
+    </div>
+  </div>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
